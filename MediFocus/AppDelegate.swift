@@ -15,7 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        
+        
+        let storedName = UserDefaults.standard.object(forKey: "username")
+      
+        
+        if let name  = storedName as? String {
+            if name != "" {
+                
+                let board = UIStoryboard(name: "Main", bundle: nil)
+                let tabBar = board.instantiateViewController(withIdentifier: "homeVC")
+                    as! ViewController
+                window?.rootViewController = tabBar
+                
+            }
+            
+        }
+        
+
         return true
     }
 
